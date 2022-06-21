@@ -3,15 +3,15 @@
 
 <main>
     <h1><%= title %></h1>
-    <form id="new-form" action="/flights" method="post">
+    <form id="new-form" action="/flights/<%= flight._id %>?_method=PUT" method="post">
       <label for="airline-select">Airline:</label>
-      <select name="airline" id="airline">
+      <select name="airline" value="<%= flight.airline %>" id="airline">
         <option value="American">American</option>
         <option value="Southwest">Southwest</option>
         <option value="United">United</option>
       </select>
       <label for="airport-select">Airport:</label>
-      <select name="airport" id="airport">
+      <select name="airport" value="<%= flight.airport %>" id="airport">
         <option value="DEN">DEN</option>
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
@@ -19,9 +19,9 @@
         <option value="SAN">SAN</option>
       </select>
       <label for="flight-number-input">Flight Number:</label>
-      <input type="number" name="flightNo" placeholder="Enter number 10-9999" id="flight-number-input" required>
+      <input type="number" value="<%= flight.flightNo %>" name="flightNo" placeholder="Enter number 10-9999" id="flight-number-input" required>
       <label for="departs-input">Departs:</label>
-      <input type="datetime-local" name="departs" value="<%= departs %>" id="departs-input">
+      <input type="datetime-local" value="<%= flight.departs %>" name="departs" id="departs-input">
       <button type="submit">Add Flight</button>
     </form>
   </main>

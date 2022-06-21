@@ -4,15 +4,25 @@ import * as flightsCtrl from '../controllers/flights.js'
 const router = Router()
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', flightsCtrl.index)
 
 //GET /flights/new
 router.get('/new', flightsCtrl.new)
 
+//GET info on single flight
+router.get('/:id', flightsCtrl.show)
+
+//Edit view
+router.get('/:id/edit', flightsCtrl.edit)
+
 //POST /flights
 router.post('/', flightsCtrl.create)
+
+//DELETE a flight
+router.delete('/:id', flightsCtrl.delete)
+
+//Update a flight
+router.put('/:id', flightsCtrl.update)
 
 export {
   router
