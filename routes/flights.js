@@ -18,6 +18,9 @@ router.get('/:id/edit', flightsCtrl.edit)
 //POST /flights
 router.post('/', flightsCtrl.create)
 
+//POST review 
+router.post('/:id/reviews', flightsCtrl.createReview)
+
 //DELETE a flight
 router.delete('/:id', flightsCtrl.delete)
 

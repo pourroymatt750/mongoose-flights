@@ -11,9 +11,6 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
-    if (req.body.cast) {
-        req.body.cast = req.body.cast.split(', ')
-    }
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key]
     }
@@ -90,6 +87,17 @@ function update(req, res) {
     })
 }
 
+function createReview(req, res) {
+    Flight.findById(req.params.id)
+    .then(flight => {
+        flight.reviews.push(req.body)
+        flight.save() 
+        .then(() => {
+            res.redirect(`/flights/${flight._id}`)
+        })
+    })
+}
+
 export {
     newFlight as new, 
     create,
@@ -97,5 +105,6 @@ export {
     show,
     deleteFlight as delete,
     edit,
-    update
+    update,
+    createReview
 }
