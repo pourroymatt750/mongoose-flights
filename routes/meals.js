@@ -9,6 +9,8 @@ router.get('/new', mealsCtrl.new)
 //POST request to localhost:3000/meals
 router.post('/', mealsCtrl.create)
 
+router.delete('/:id', mealsCtrl.delete)
+
 export {
     router
 }

@@ -17,7 +17,15 @@ function create(req, res) {
     })
 }
 
+function deleteMeal(req, res) {
+    Meal.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.redirect('/meals/new')
+    })
+}
+
 export {
     newMeal as new,
-    create
+    create,
+    deleteMeal as delete
 }

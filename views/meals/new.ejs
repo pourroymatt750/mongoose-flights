@@ -1,5 +1,4 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/meals/new.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -16,6 +15,14 @@
     <input type="text" name="name" id="meal-input">
     <button type="submit">Add Meal</button>
   </form>
+
+  <% meals.forEach(function(meal) { %>
+    <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST"> 
+      <p><%= meal.name %> </p>
+      <button type="submit">DELETE</button>
+    </form>
+  <% }) %>
+
 </main>
 
 <%- include('../partials/footer') %>
