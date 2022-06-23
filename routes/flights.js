@@ -21,6 +21,9 @@ router.post('/', flightsCtrl.create)
 //POST new ticket 
 router.post('/:id/tickets', flightsCtrl.createTicket)
 
+//POST request to add meal
+router.post('/:id/meals', flightsCtrl.addMeal)
+
 //DELETE a flight
 router.delete('/:id', flightsCtrl.delete)
 
